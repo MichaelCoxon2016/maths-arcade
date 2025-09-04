@@ -158,8 +158,10 @@ export default function SubtractionRunner() {
             }
             if (deathSoundRef.current) {
               setTimeout(() => {
-                deathSoundRef.current.currentTime = 0;
-                deathSoundRef.current.play().catch(err => console.log('Death sound failed:', err));
+                if (deathSoundRef.current) {
+                  deathSoundRef.current.currentTime = 0;
+                  deathSoundRef.current.play().catch(err => console.log('Death sound failed:', err));
+                }
               }, 300);
             }
           }
